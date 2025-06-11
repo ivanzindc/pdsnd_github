@@ -1,7 +1,7 @@
 """
 Project: Explore US Bikeshare Data
 
-Please refer to accompanying readme.txt for details.
+Please refer to accompanying README.md for details.
 """
 
 import time
