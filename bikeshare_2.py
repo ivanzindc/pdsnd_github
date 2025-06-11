@@ -99,10 +99,9 @@ def load_data(city, month, day):
         
     return df
 
-def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+def show_raw_data(df):
+    """Interactively display 5 lines of raw data at user's request."""
 
-    # First asks the user if they want to see raw data, 5 lines at a time
     first_5 = input('Would you like to see 5 lines of raw data?')
     if first_5.lower().startswith('y'):
         print(df.head())
@@ -117,6 +116,11 @@ def time_stats(df):
                     break
             else:
                 break
+
+def time_stats(df):
+    """Displays statistics on the most frequent times of travel."""
+
+    show_raw_data(df)
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
