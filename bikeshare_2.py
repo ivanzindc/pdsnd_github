@@ -78,9 +78,11 @@ def load_data(city, month, day):
     df['month'] = df["Start Time"].dt.month
     df['day_of_week'] = df["Start Time"].dt.dayofweek
     df['hour'] = df["Start Time"].dt.hour
+
     weekday_dict = {'sunday' : 6, 'monday' : 0, 'tuesday' : 1, 'wednesday' : 2, 'thursday' : 3,
                     'friday' : 4, 'saturday' : 5}
-    
+
+    ''' the logic in this commented block was flattened below during code refactoring in order to improve code readability    
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
@@ -95,8 +97,13 @@ def load_data(city, month, day):
     else:
         if day != 'all':
             # filter by day of week to create the new dataframe
-            df = df[df['day_of_week'] == weekday_dict[day]]
-        
+            df = df[df['day_of_week'] == weekday_dict[day]]'''
+
+    if month != 'all':
+        month_num = ['january','february','march','april','may','june'].index(month) + 1
+        df = df[df['month'] == month_num]
+    if day != 'all':
+        df = df[df['day_of_week'] == weekday_dict[day]]    
     return df
 
 def show_raw_data(df):
