@@ -221,7 +221,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-''' This extra function added in order to help the company visualize and focus in on some of their busiest
+''' These 2 extra functions were  added in order to help the company visualize and focus in on some of their busiest
     spots in order to help their business thrive and grow (and to practice my matplotlib skills)'''
 
 def top5(df):
@@ -239,13 +239,19 @@ def top5(df):
     for i, j in top5.items():
         print("  " + i + ": " + "{:,}".format(int(j)))
 
+    return total_counts.nlargest(5)
+
+def plot_stats(top5):
+    """Plot the top 5 most common values for the given column.
+    """
     # I wanted to use more interesting colors in the diagram:
     # “Spring Pastels” Palette:
     palette = ['#fd7f6f', '#7eb0d5', '#ffb55a', '#beb9db', '#bd7ebe']
-    '''cmap   = plt.get_cmap('Pastel1')
-    colors = cmap.colors[:len(top5)]'''
+    #cmap   = plt.get_cmap('Pastel1')
+    #colors = cmap.colors[:len(top5)]
     
     #n not every terminal will produce the graphic:
+
     try:
         plt.figure()                                  
         plt.barh(top5.index[::-1],
@@ -272,7 +278,8 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
         
-        top5(df)
+        busiest = top5(df)
+        plot_stats(busiest)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
