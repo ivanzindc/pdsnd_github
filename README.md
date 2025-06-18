@@ -38,6 +38,11 @@ Please run the script in the terminal and follow the prompts.
 I added a matplotlib visualization of busiest locations for chosen filters.
 It will be produced in a separate window if your terminal allows GUI.
 
+An example for unfiltered NYC data can be viewed at
+![Top 5 Most Used Bike Stations](images/top5_stations.png)
+
+*Figure: Combined start+end trip counts for the five busiest stations.*
+
 ### Files used
 Data for queries resides in 3 files:
 - chicago.csv
