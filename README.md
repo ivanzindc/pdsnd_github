@@ -113,7 +113,7 @@ Would you like to restart? Enter yes or no.
 no
 ```
 
-This is the plot for unfiltered NYC data in a demo run above:
+This is the plot for unfiltered NYC data in the demo run above:
 
 ![Top 5 Most Used Bike Stations](images/top5_stations.png)
 
